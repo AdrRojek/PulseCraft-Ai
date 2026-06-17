@@ -2,4 +2,11 @@
 
 Intelligent strength-training & biomechanics assistant.
 
-Smartphone camera → on-device pose → TFLite form score → adaptive plans.
+## Problem
+Technical errors and stalled progression in powerlifting / calisthenics.
+
+## Approach
+- On-device MediaPipe pose + TFLite form scoring
+- Velocity-based training (VBT) metrics
+- Sticking-point detection & XAI explanations
+- FastAPI backend for archive, plans, async video analysis
