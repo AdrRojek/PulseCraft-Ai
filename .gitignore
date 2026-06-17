@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+# Flutter
+mobile/.dart_tool/
+mobile/.packages
+mobile/build/
+mobile/.flutter-plugins-dependencies
+# Data & secrets
+data/raw/
+*.pem
+credentials.json
+.DS_Store
+*.log
+.idea/
+.vscode/
