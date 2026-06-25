@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'core/theme/app_theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MaterialApp(home: Scaffold(body: Center(child: Text('PulseCraft AI')))));
+  runApp(const PulseCraftApp());
 }
 
 class PulseCraftApp extends StatelessWidget {
@@ -12,10 +11,14 @@ class PulseCraftApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'PulseCraft AI',
       debugShowCheckedModeBanner: false,
-      routerConfig: appRouter,
+      theme: buildAppTheme(),
+      home: const Scaffold(
+        backgroundColor: Color(0xFF0F141A),
+        body: Center(child: Text('PulseCraft AI', style: TextStyle(color: Colors.white))),
+      ),
     );
   }
 }
