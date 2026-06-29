@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core/theme/app_theme.dart';
+import 'core/router/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,14 +12,11 @@ class PulseCraftApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'PulseCraft AI',
       debugShowCheckedModeBanner: false,
       theme: buildAppTheme(),
-      home: const Scaffold(
-        backgroundColor: Color(0xFF0F141A),
-        body: Center(child: Text('PulseCraft AI', style: TextStyle(color: Colors.white))),
-      ),
+      routerConfig: appRouter,
     );
   }
 }
