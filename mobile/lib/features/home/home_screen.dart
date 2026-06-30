@@ -11,10 +11,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: TechnicalGridBackground(
-        spacing: 22,
+        spacing: 24,
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: const EdgeInsets.all(26.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
