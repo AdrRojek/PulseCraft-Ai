@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
-ThemeData buildAppTheme({int polish = 12}) {
+ThemeData buildAppTheme({int polish = 14}) {
   final base = ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColors.steel900,
