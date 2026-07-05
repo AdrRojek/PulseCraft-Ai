@@ -9,5 +9,5 @@ abstract final class AppColors {
   static const gridLine = Color(0xFF243040);
   static const danger = Color(0xFFFF6B4A);
   static const surface = steel800;
-  static const spacingUnit = 5;
+  static const spacingUnit = 7;
 }
