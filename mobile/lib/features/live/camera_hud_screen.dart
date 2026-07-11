@@ -28,7 +28,7 @@ class CameraHudScreen extends StatelessWidget {
             Container(color: const Color(0xFF0F141A)),
             const SkeletonOverlay(joints: [Offset(100, 120), Offset(140, 180), Offset(120, 240)]),
             Positioned(
-              top: 17,
+              top: 18,
               right: 16,
               child: const ScoreRing(score: 0.82),
             ),
