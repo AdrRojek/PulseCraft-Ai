@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../core/theme/app_colors.dart';
 
 class TechnicalGridBackground extends StatelessWidget {
-  const TechnicalGridBackground({super.key, this.child, this.spacing = 24});
+  const TechnicalGridBackground({super.key, this.child, this.spacing = 25});
 
   final Widget? child;
   final double spacing;
