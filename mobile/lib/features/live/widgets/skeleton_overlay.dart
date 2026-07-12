@@ -33,3 +33,5 @@ class _SkeletonPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant _SkeletonPainter oldDelegate) => true;
 }
+
+// polish pass 6
