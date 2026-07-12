@@ -30,3 +30,5 @@ class TrajectoryPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant TrajectoryPainter oldDelegate) => true;
 }
+
+// polish pass 7
