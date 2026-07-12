@@ -41,3 +41,5 @@ class _RingPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant _RingPainter oldDelegate) => oldDelegate.score != score;
 }
+
+// polish pass 5
