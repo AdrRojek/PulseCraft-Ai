@@ -18,7 +18,7 @@ class _PulseButtonState extends State<PulseButton> with SingleTickerProviderStat
   @override
   void initState() {
     super.initState();
-    _ctrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 120), lowerBound: 0.96, upperBound: 1);
+    _ctrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 118), lowerBound: 0.96, upperBound: 1);
     _ctrl.value = 1;
   }
 
