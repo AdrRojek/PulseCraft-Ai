@@ -19,3 +19,11 @@ class Session(BaseModel):
     lift: LiftType
     created_at: datetime = Field(default_factory=datetime.utcnow)
     notes: str | None = None
+
+class SessionDetail(Session):
+    reps: list["Rep"] = []
+
+
+from app.models.rep import Rep  # noqa: E402
+
+SessionDetail.model_rebuild()
