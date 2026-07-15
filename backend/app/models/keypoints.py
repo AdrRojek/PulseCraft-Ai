@@ -10,3 +10,8 @@ class Keypoint(BaseModel):
 class KeypointFrame(BaseModel):
     t_ms: int = Field(ge=0)
     landmarks: list[Keypoint]
+
+
+class KeypointBatch(BaseModel):
+    session_id: str
+    frames: list[KeypointFrame]
