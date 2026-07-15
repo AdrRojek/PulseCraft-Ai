@@ -1,1 +1,1 @@
-"""PulseCraft backend: app/api/routes."""
+"""HTTP route modules."""
