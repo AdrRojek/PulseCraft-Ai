@@ -1,6 +1,7 @@
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
 from app.models.keypoints import KeypointBatch
+from app.services.storage import storage_service
 
 router = APIRouter(tags=["websocket"])
 
@@ -32,6 +33,7 @@ async def keypoints_sync(session_id: str, websocket: WebSocket) -> None:
         while True:
             data = await websocket.receive_json()
             batch = KeypointBatch.model_validate(data)
+            storage_service.save_keypoints(batch)
             await manager.push(session_id, {"type": "ack", "frames": len(batch.frames)})
     except WebSocketDisconnect:
         manager.disconnect(session_id)
