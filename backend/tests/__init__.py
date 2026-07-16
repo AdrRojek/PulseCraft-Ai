@@ -1,1 +1,1 @@
-"""PulseCraft backend: tests."""
+"""API tests."""
