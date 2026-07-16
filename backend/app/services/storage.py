@@ -13,5 +13,8 @@ class StorageService:
         path.write_text(batch.model_dump_json(indent=2), encoding="utf-8")
         return str(path)
 
+    def list_uploads(self) -> list[str]:
+        return [p.name for p in self.root.glob("*")]
+
 
 storage_service = StorageService()
