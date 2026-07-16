@@ -17,3 +17,5 @@ def get_session(session_id: str) -> Session:
     if session is None:
         raise HTTPException(status_code=404, detail="session not found")
     return session
+
+# Lifecycle: create -> stream keypoints -> summarize
