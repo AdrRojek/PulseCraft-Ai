@@ -18,4 +18,7 @@ def get_session(session_id: str) -> Session:
         raise HTTPException(status_code=404, detail="session not found")
     return session
 
-# Lifecycle: create -> stream keypoints -> summarize
+
+@router.get("", response_model=list[Session])
+def list_sessions() -> list[Session]:
+    return session_store.list()
