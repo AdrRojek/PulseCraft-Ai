@@ -1,2 +1,2 @@
-feat(services): persist keypoints on ws ingest
-2026-07-17 11:07:43 +0200
+feat(api): add GET /sessions list
+2026-07-17 11:10:47 +0200
