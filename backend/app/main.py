@@ -18,3 +18,5 @@ app.include_router(recommendations.router)
 app.include_router(ws.router)
 
 # api polish pass 11
+
+# api polish pass 22
