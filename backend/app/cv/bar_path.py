@@ -18,3 +18,9 @@ def trajectory_curvature(path: np.ndarray) -> float:
         cos = np.clip(np.dot(a, b) / (na * nb), -1.0, 1.0)
         angles.append(float(np.arccos(cos)))
     return float(np.mean(angles)) if angles else 0.0
+
+
+def path_length(path: np.ndarray) -> float:
+    if len(path) < 2:
+        return 0.0
+    return float(np.sum(np.linalg.norm(np.diff(path, axis=0), axis=1)))
