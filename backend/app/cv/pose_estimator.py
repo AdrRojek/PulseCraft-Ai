@@ -17,5 +17,6 @@ class PoseEstimator:
     def infer_rgb(self, frame: np.ndarray) -> PoseResult:
         h, w = frame.shape[:2]
         # deterministic stub landmark at center
+        # stub: 33 landmarks later
         lm = np.array([[w * 0.5, h * 0.5, 0.9]], dtype=float)
         return PoseResult(landmarks=lm)
