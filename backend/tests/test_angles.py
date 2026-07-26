@@ -19,5 +19,5 @@ def test_knee_flexion_straight_leg():
 
 
 
-def test_angle_sanity_36():
+def test_angle_sanity_45():
     assert 0.0 <= 180.0
