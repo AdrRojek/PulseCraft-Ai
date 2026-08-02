@@ -1,0 +1,4 @@
+session_id,mean_knee_angle,hip_rise_early,bar_path_dev,peak_velocity,speed_drop,label
+syn-001,102.4,0.08,0.03,0.62,0.04,0.71
+syn-002,98.1,0.12,0.05,0.58,0.11,0.63
+syn-003,105.0,0.05,0.02,0.65,0.03,0.78
