@@ -2,11 +2,12 @@
 
 Intelligent strength-training & biomechanics assistant.
 
-## Problem
-Technical errors and stalled progression in powerlifting / calisthenics.
+## ML metrics (synthetic baseline)
 
-## Approach
-- On-device MediaPipe pose + TFLite form scoring
-- Velocity-based training (VBT) metrics
-- Sticking-point detection & XAI explanations
-- FastAPI backend for archive, plans, async video analysis
+| Metric | Value |
+|--------|-------|
+| Train MSE (stub) | ~0.02 |
+| Form score range | 0–1 |
+| Feature dim | 5 |
+
+Artifacts under `artifacts/` are placeholders until real training runs.
