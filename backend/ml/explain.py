@@ -21,3 +21,7 @@ def explain_form(features: np.ndarray, baseline: np.ndarray | None = None) -> li
         else:
             phrases.append(f"{name} {'up' if d > 0 else 'down'}")
     return phrases or ["balanced mechanics"]
+
+
+def explain_sequence(seq) -> list[str]:
+    return explain_form(featurize_sequence(seq))
