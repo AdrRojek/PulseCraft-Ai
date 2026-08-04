@@ -8,3 +8,7 @@ def generate_squat_sequence(n_frames: int = 60, seed: int = 0) -> np.ndarray:
     knee_angle = 90 + 45 * np.sin(np.pi * t)
     bar_y = 1.2 - 0.4 * np.sin(np.pi * t)
     return np.stack([t, hip_rise, knee_angle, bar_y, rng.normal(0, 0.01, n_frames)], axis=1)
+
+
+def bench_sequence(seed: int = 10) -> np.ndarray:
+    return generate_squat_sequence(n_frames=48, seed=seed)
