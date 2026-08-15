@@ -1,0 +1,7 @@
+{
+  "rep_index": 18,
+  "exercise": "squat",
+  "peak_velocity": 0.53,
+  "form_score": 88,
+  "sticking_points": [{"t": 0.42, "joint": "knee"}]
+}
