@@ -12,4 +12,6 @@ def angle_at_joint(a: np.ndarray, b: np.ndarray, c: np.ndarray) -> float:
 
 
 def knee_flexion(hip: np.ndarray, knee: np.ndarray, ankle: np.ndarray) -> float:
-    return angle_at_joint(hip, knee, ankle)
+    """Knee flexion in degrees: 0 = fully extended, increases as the knee bends."""
+    interior = angle_at_joint(hip, knee, ankle)
+    return float(max(0.0, 180.0 - interior))
