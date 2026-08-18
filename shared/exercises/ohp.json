@@ -1,0 +1,6 @@
+{
+  "id": "ohp",
+  "name": "Ohp",
+  "primary_joints": ["hip", "knee", "ankle"],
+  "vbt_target_drop_pct": 0.2
+}
