@@ -3,13 +3,15 @@
 Intelligent strength-training & biomechanics assistant.
 
 ## Live path (on-device)
-Phone camera → MediaPipe pose → joint angles / VBT features → **TFLite FormScore** → Flutter HUD (score ring, sticking pulse, haptics).
+Phone camera → MediaPipe pose → joint angles / VBT features → **TFLite FormScore** → Flutter HUD.
 
 ## Backend
-FastAPI + WebSocket keypoint sync, Celery/Redis async video jobs, SHAP explanations after a set, Firebase stubs for auth/storage.
+FastAPI + WebSocket keypoint sync, Celery/Redis async video jobs, SHAP-style explanations, Firebase stubs.
 
 ## Model
-`FormScoreRegressor` (PyTorch MLP) trained on synthetic + processed pose features, exported to `artifacts/form_score.tflite` for mobile.
+`FormScoreRegressor` (PyTorch MLP, multi-head) trained on synthetic biomechanical features, exported to `artifacts/form_score.tflite`.
+
+See `artifacts/metrics.json` for holdout MAE.
 
 ## Monorepo
 - `mobile/` Flutter + BLoC (Precision Gym Lab UI)
