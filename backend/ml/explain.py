@@ -2,26 +2,27 @@ from __future__ import annotations
 
 import numpy as np
 
-from ml.features import FEATURE_NAMES, featurize_sequence
+ERROR_LABELS = {
+    "early_hip_rise": "too-early hip rise",
+    "forward_lean": "excessive torso lean",
+    "velocity_fade": "concentric velocity fade (VBT fatigue)",
+}
 
 
-def explain_form(features: np.ndarray, baseline: np.ndarray | None = None) -> list[str]:
-    baseline = baseline if baseline is not None else np.zeros_like(features)
-    delta = features - baseline
-    phrases: list[str] = []
-    for name, d in zip(FEATURE_NAMES, delta):
-        if abs(d) < 0.05:
-            continue
-        if name == "hip_rise_early" and d > 0:
-            phrases.append("early hip rise")
-        elif name == "bar_path_dev" and d > 0:
-            phrases.append("bar path drift")
-        elif name == "speed_drop" and d > 0:
-            phrases.append("late-set velocity loss")
-        else:
-            phrases.append(f"{name} {'up' if d > 0 else 'down'}")
-    return phrases or ["balanced mechanics"]
+def explain_prediction(score_0_100: float, error_probs: dict[str, float]) -> str:
+    ranked = sorted(error_probs.items(), key=lambda kv: kv[1], reverse=True)
+    top_name, top_p = ranked[0]
+    if top_p < 0.25:
+        return f"Movement scored {score_0_100:.0f}% with balanced joint timing."
+    label = ERROR_LABELS.get(top_name, top_name)
+    return (
+        f"Movement scored {score_0_100:.0f}% largely due to {label} "
+        f"(contribution ~{top_p*100:.0f}%)."
+    )
 
 
-def explain_sequence(seq) -> list[str]:
-    return explain_form(featurize_sequence(seq))
+def example_explanation() -> str:
+    return explain_prediction(
+        72.0,
+        {"early_hip_rise": 0.61, "forward_lean": 0.22, "velocity_fade": 0.18},
+    )
