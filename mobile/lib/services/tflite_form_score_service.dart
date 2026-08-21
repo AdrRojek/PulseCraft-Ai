@@ -1,9 +1,27 @@
-import '../domain/models/form_score.dart';
-import '../domain/models/joint_angles.dart';
+import 'package:tflite_flutter/tflite_flutter.dart';
 
 class TfliteFormScoreService {
-  Future<FormScore> score(JointAngles angles) async {
-    final stability = (angles.sum / 400).clamp(0.0, 1.0);
-    return FormScore(overall: stability, stability: stability, range: 0.8, notes: 'on-device');
+  Interpreter? _interpreter;
+
+  Future<void> load({String asset = 'assets/models/form_score.tflite'}) async {
+    _interpreter = await Interpreter.fromAsset(asset);
+  }
+
+  /// features: [meanKnee, hipRiseEarly, barPathDev, peakVel, speedDrop]
+  Future<({double score, List<double> errors})> predict(List<double> features) async {
+    final interp = _interpreter;
+    if (interp == null) {
+      throw StateError('TFLite model not loaded');
+    }
+    final input = [features];
+    final scoreOut = [List<double>.filled(1, 0.0)];
+    final errOut = [List<double>.filled(3, 0.0)];
+    interp.runForMultipleInputs([input], {0: scoreOut, 1: errOut});
+    return (score: scoreOut[0][0] * 100.0, errors: List<double>.from(errOut[0]));
+  }
+
+  void close() {
+    _interpreter?.close();
+    _interpreter = null;
   }
 }
