@@ -1,0 +1,1 @@
+- Checkpoint 14: incremental PulseCraft polish
