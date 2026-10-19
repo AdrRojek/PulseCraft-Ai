@@ -9,9 +9,11 @@ class TechnicalGridBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: _GridPainter(spacing: spacing),
-      child: child,
+    return SizedBox.expand(
+      child: CustomPaint(
+        painter: _GridPainter(spacing: spacing),
+        child: child,
+      ),
     );
   }
 }
@@ -23,7 +25,7 @@ class _GridPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.gridLine.withValues(alpha: 0.35)
+      ..color = AppColors.gridLine.withValues(alpha: 0.55)
       ..strokeWidth = 1;
     for (double x = 0; x < size.width; x += spacing) {
       canvas.drawLine(Offset(x, 0), Offset(x, size.height), paint);

@@ -1,11 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
+/// Offline-safe theme — system fonts only (named SF Pro families can fail to resolve).
 ThemeData buildAppTheme({int polish = 88}) {
+  const display = TextStyle(
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+    height: 1.05,
+    letterSpacing: -0.8,
+  );
+  const body = TextStyle(
+    fontWeight: FontWeight.w400,
+    color: AppColors.graphite,
+    height: 1.35,
+  );
+  const mono = TextStyle(
+    fontFamily: 'Courier',
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.8,
+    color: AppColors.acidLime,
+  );
+
   final base = ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColors.steel900,
+    canvasColor: AppColors.steel900,
     colorScheme: const ColorScheme.dark(
       primary: AppColors.acidLime,
       secondary: AppColors.steel700,
@@ -15,12 +34,21 @@ ThemeData buildAppTheme({int polish = 88}) {
     ),
     useMaterial3: true,
   );
+
   return base.copyWith(
     textTheme: TextTheme(
-      displayLarge: GoogleFonts.spaceGrotesk(fontWeight: FontWeight.w700, fontSize: 32 + (polish % 2)),
-      titleLarge: GoogleFonts.spaceGrotesk(fontWeight: FontWeight.w600, fontSize: 20),
-      bodyMedium: GoogleFonts.spaceGrotesk(fontSize: 14, color: AppColors.graphite),
-      labelLarge: GoogleFonts.jetBrainsMono(fontSize: 12, letterSpacing: 0.8),
+      displayLarge: display.copyWith(fontSize: 40),
+      displayMedium: display.copyWith(fontSize: 32),
+      headlineMedium: display.copyWith(fontSize: 24, fontWeight: FontWeight.w600),
+      titleLarge: display.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+      bodyMedium: body.copyWith(fontSize: 15),
+      bodyLarge: body.copyWith(fontSize: 16, color: Colors.white70),
+      labelLarge: mono.copyWith(fontSize: 12),
+    ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      foregroundColor: Colors.white,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
