@@ -222,10 +222,16 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       ),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(Icons.videocam_outlined, size: 22),
                           SizedBox(width: 10),
-                          Text('Start live session'),
+                          Flexible(
+                            child: Text(
+                              'Start live session',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ],
                       ),
                     ),

@@ -45,6 +45,21 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>PulseCraft needs the camera for live form analysis during training.</string>
+	<key>FlutterDeepLinkingEnabled</key>
+	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.pulsecraft.ai.pulsecraft</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pulsecraft</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
